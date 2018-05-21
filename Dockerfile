@@ -13,4 +13,4 @@ ENV PATH=/app/node_modules/.bin:$PATH
 
 RUN ng build
 
-CMD ng serve --prod --port 4200 --host 0.0.0.0
+CMD ng serve --port 4200 --host 0.0.0.0 --disable-host-check
