@@ -7,3 +7,11 @@ html, body, .map-container {
   overflow: hidden;
 }
 
+
+.mat-dialog-container {
+  background-color: #263238D0;
+}
+
+.mat-drawer-backdrop {
+  background-color: rgba(0,0,0,0.4) !important;
+}

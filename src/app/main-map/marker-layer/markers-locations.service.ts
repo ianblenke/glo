@@ -27,7 +27,7 @@ export class MarkersLocationsService {
 
 
   startMapListenToClicks() {
-    if (this.mapEventManager === undefined ){
+    if (this.mapEventManager === undefined) {
       this.getMapServices();
     }
 
@@ -38,7 +38,9 @@ export class MarkersLocationsService {
 
     this.mapClicks$.subscribe(eventResult => {
       const nextPos = this.geoConverter.screenToCartesian3(eventResult.movement.endPosition, false);
-      this.markersLocations$.next(nextPos);
+      if (nextPos) {
+        this.markersLocations$.next(nextPos);
+      }
     });
 
     return this.getMarkerLocations$();
@@ -48,8 +50,11 @@ export class MarkersLocationsService {
   getMarkerLocations$() {
     return this.markersLocations$;
   }
+
   stopListenToClicks() {
-    this.mapClicks$.dispose();
+    if (this.mapClicks$) {
+      this.mapClicks$.dispose();
+    }
   }
 
   getMapServices(): void {

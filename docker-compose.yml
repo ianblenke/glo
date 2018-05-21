@@ -9,4 +9,3 @@ services:
     image: glo
     ports:
      - 4200:4200
-
